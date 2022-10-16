@@ -1,4 +1,16 @@
 
+# Muestreo ---------------------------------------------------------------
+Anime_limpio <- read.csv("C:/Users/Stefanny/OneDrive/Eafit/Cuartosemeste/estadistica/estadística/Anime_limpio.csv")
+unique(Anime_limpio$type)
+Anime_limpio$Tv= ifelse(Anime_limpio$type=="TV",1,0)
+dim(Anime_limpio)
+sum(Anime_limpio$Tv)
+#12017     9
+muestreo = sample(Anime_limpio$Tv,1000, replace = FALSE)
+Num_TV = sum(muestreo)
+
+x= Num_TV
+#309 y 298
 # Encuentre la función de logverosimilitud relativa 1 (r_1) ---------------
 r1=function(tetha1){(309*log(tetha1)+691*log(1-tetha1))+618.2982}
 
